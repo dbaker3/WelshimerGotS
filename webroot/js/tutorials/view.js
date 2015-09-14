@@ -1,5 +1,13 @@
 $(document).ready(function() {
 
+  $('#popup-link').click(function(e) {
+      e.preventDefault();
+      var tutorial_window = window.open(cakephp.tutorial_url, "tutorial_window", "width=384,height=636,left=0,top=0");
+      if (tutorial_window) {
+          window.location = cakephp.site_url;
+      }
+  });
+
   var revision_info_height = $('#revision-info').outerHeight();
 
   $('#site-frame').css('top', revision_info_height);
@@ -97,6 +105,18 @@ $(document).ready(function() {
     }
   );
 
+  $('#close-link').click(function() {
+    /* Customized function for Welshimer theme
+       - Closes GotS instead of minimizing      */
+    var response = window.confirm("Do you want to exit the tutorial?");
+    if (response == true) {
+      window.location.href = $('#site-frame').attr('src');
+    }
+    else {
+      return false;
+    }
+  });
+
   $('#closed').click(function() {
     $(this).hide('slide', 1000);
     $('#draggable').animate({
@@ -129,21 +149,5 @@ $(document).ready(function() {
   var current_chapter = 0;
   
   $('#table-of-contents ul li:eq(' + current_chapter + ')').addClass('current-chapter');
-
-
-/* Custom code for Welshimer theme ------------------------------------------------------------------ */
-
-  /* Close button exits tutorial instead of minimizing it */
-  $('#close-link').click(function() {
-    var response = window.confirm("Do you want to exit the tutorial?");
-    if (response == true) {
-      window.location.href = $('#site-frame').attr('src');
-    }
-    else {
-      return false;
-    }
-  });
-
-
   
 });
