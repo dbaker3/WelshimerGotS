@@ -21,7 +21,10 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
+	
+	<!-- dabaker 9/14/15 - Following 1 line added for intranet compatibility -->
 	<?php echo "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"; ?>
+	
 	<title>
 		<?php echo __('Guide on the Side: '); ?>
 		<?php echo $title_for_layout; ?>

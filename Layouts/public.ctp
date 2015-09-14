@@ -21,7 +21,10 @@
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
+	
+	<!-- dabaker 9/14/15 - Following 1 line added for intranet compatibility -->
 	<?php echo "<meta http-equiv='X-UA-Compatible' content='IE=edge'>"; ?>
+	
 	<title>
     <?php 
       $user_title = Configure::read('user_config.application_title');
